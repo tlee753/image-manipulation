@@ -5,7 +5,7 @@
 # last modified 2/8/16
 
 import math
-import numpy
+from numpy import array
 from PIL import Image
 # imports required components
 
@@ -26,14 +26,14 @@ def backRem (inputFile):
     
     [red, green, blue] = im.split()
     # splits image into red, green, and blue images
+    # keeps other layers, they are just empty
     
-    array = np.asarray(red, dtype=np.uint8)
-    print (array.shape)
+    imageArray = array(im)
     
-    for rows in array:
-        for cols in array:
-            if layer[rows, cols] >= 255:
-                im[rows, cols] = (0, 255, 0, 255)
+    for rows in imageArray:
+        for cols in imageArray:
+            if imageArray[rows, cols].any >= 255:
+                imageArray[rows, cols] = (0, 255, 0, 255)
     # iterates through each pixel, sets alpha value to 0 if the pixel is white
     
     im.save(outputString)
@@ -45,3 +45,13 @@ def backRem (inputFile):
 backRem('Hole.jpeg')
 # function call
 
+
+
+"""
+img = Image.fromarray(arr)
+img.save("output.png")
+
+
+http://stackoverflow.com/questions/3752476/python-pil-replace-a-single-rgba-color
+
+"""
