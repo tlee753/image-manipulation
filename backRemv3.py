@@ -15,14 +15,11 @@ def backRem (inputFile):
     imageArray = array(imageConverted)
     # creates a height x width x 4 numpy array
     
-    # [red, green, blue, alpha] = imageArray.T
-    # temporarily unpack the bands for readability
-    
     for rows in imageArray:
         for cols in imageArray:
             if imageArray[rows, cols].any >= 240:
                 imageArray[rows, cols] = (0, 0, 0, 0)
-    print ('so far so good 3')          
+                        
     newImage = Image.fromarray(imageArray)
     newImage.show()
     
