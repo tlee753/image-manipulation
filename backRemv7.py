@@ -36,7 +36,7 @@ def backRem ():
         image = Image.fromarray(data)
         # converts four interconnected arrays back into image interpretation
         
-        outputFile = inputFile[0:len(inputFile)-5] + "_edited.png"
+        outputFile = inputFile[0:len(inputFile)-4] + "_edited.png"
         image.save(outputFile)
         # creates a new file name based on the input and saves the edited image under that name
         
