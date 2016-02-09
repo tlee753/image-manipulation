@@ -33,7 +33,7 @@ def backRem (inputFile):
     for rows in imageArray:
         for cols in imageArray:
             if imageArray[rows, cols].any >= 255:
-                imageArray[rows, cols] = (0, 255, 0, 255)
+                imageArray[rows, cols] = (0, 255, 0, 255) # altered to check output 
     # iterates through each pixel, sets alpha value to 0 if the pixel is white
     
     im.save(outputString)
