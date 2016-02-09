@@ -5,7 +5,7 @@
 # last modified 2/8/16
 
 
-import sys
+# import sys
 import math
 import numpy
 from PIL import *
@@ -35,12 +35,11 @@ def backRem (inputFile):
         for cols in layer:
             if layer[rows, cols] >= 255:
                 image[rows, cols] = (0, 0, 0, 0)
-    # for loop to go through each pixel and enter '1' in array if white
     
     cv2.imwrite(outputString, image)
     
     print('File Conversion Completed')
 
 
-backRem('hole.jpeg')
+backRem('Hole.jpeg')
 # function call
