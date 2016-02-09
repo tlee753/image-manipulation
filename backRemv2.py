@@ -51,7 +51,12 @@ backRem('Hole.jpeg')
 img = Image.fromarray(arr)
 img.save("output.png")
 
+http://docs.python-guide.org/en/latest/scenarios/imaging/
+- Original pillow installation
+
+https://automatetheboringstuff.com/chapter17
+- pillow documentation
 
 http://stackoverflow.com/questions/3752476/python-pil-replace-a-single-rgba-color
-
+- modifying pixels
 """
