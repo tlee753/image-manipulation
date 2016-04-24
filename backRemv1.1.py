@@ -16,7 +16,7 @@ from numpy import array
 # import required methods from libraries
 
 def backRem ():
-    inputFile = raw_input("Please type file name string without quotations. \n")
+    inputFile = input("Please type file name string without quotations. \n")
     # asks user to input file name
     
     try:
@@ -34,10 +34,10 @@ def backRem ():
     [red, green, blue, alpha] = data.T
     # splits the four layers of the array into separate single layered arrays
     
-    redValue = raw_input("Minimum value of red for mask. Default: 240 \n")
-    greenValue = raw_input("Minimum value of green for mask. Default: 240 \n")
-    blueValue = raw_input("Minimum value of blue for mask. Default: 240 \n")
-    alphaValue = raw_input("Minimum value of alpha for mask. Default: 240 \n")
+    redValue = input("Minimum value of red for mask. Default: 240 \n")
+    greenValue = input("Minimum value of green for mask. Default: 240 \n")
+    blueValue = input("Minimum value of blue for mask. Default: 240 \n")
+    alphaValue = input("Minimum value of alpha for mask. Default: 240 \n")
     # asks the user for values to mask the background with
         
     try:

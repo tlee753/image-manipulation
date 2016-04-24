@@ -30,6 +30,7 @@ end
 % alphaArray = zeros(size(X));
 % alphaArray(X == 255) = 1;
 
+% initial ideation, alternative method
 % for i = 1:m
 %     for j = 1:n
 %         if image(i, j) == 255
