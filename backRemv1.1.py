@@ -1,14 +1,14 @@
 """
 Background Remover
 ==================
-Function to remove white backgrounds from silhouette pictures
+Function to remove backgrounds which fit user input criteria from pictures
 
 - Saves files as .png
 - Can be modified to remove black or white backgrounds
 - Can also be modified to remove picture and leave white background
 - Created by tlee753
 - Last Modified 2/10/16
-- Version 8.0
+- Version 1.1
 """
 
 from PIL import Image
@@ -26,7 +26,6 @@ def backRem ():
         
     except:
         print ("Unable to load file. Please check to make sure file exists and is spelled correctly.")
-        backRem()
         # errors if the input is not an image file    
            
     data = array(image)
@@ -50,7 +49,6 @@ def backRem ():
         
     except:
         print ("Please input values between 0 and 255 for mask.")
-        backRem()
         # errors if the values are not integers between 0 and 255
     
     mask = (red >= redValue) & (green >= greenValue) & (blue >= blueValue) & (alpha >= alphaValue)
