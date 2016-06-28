@@ -8,7 +8,7 @@ Function to remove backgrounds which fit user input criteria from pictures
 - Can also be modified to remove picture and leave white background
 - Created by tlee753
 - Last Modified 2/10/16
-- Version 1.1
+- Version 1.2
 """
 
 from PIL import Image
