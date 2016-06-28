@@ -26,7 +26,6 @@ def backRem ():
         
     except:
         print ("Unable to load file. Please check to make sure file exists and is spelled correctly.")
-        backRem()
         # errors if the input is not an image file    
            
     data = array(image)
@@ -50,10 +49,9 @@ def backRem ():
         
     except:
         print ("Please input values between 0 and 255 for mask.")
-        backRem()
         # errors if the values are not integers between 0 and 255
-        
-    try:
+
+
         
     
     mask = (red >= redValue) & (green >= greenValue) & (blue >= blueValue) & (alpha >= alphaValue)
