@@ -38,24 +38,24 @@ def backRem ():
 
     # test section to alter which whether above or below input value pixels are masked
 
-    maskInput = raw_input("Would you like to remove pixels with values above mask or below? Default is above to remove white background.\n")
+    maskInput = raw_input("Would you like to remove pixels with values above mask? Default is yes/above to remove white background.\n")
     maskInput = maskInput.lower()
     maskInput = maskInput.replace(" ", "")
 
-    if (maskInput == "above" or "yes" or "" or "y" or "a" or "up"):
+    if (maskInput == "above" or maskInput == "yes" or maskInput == "" or maskInput == "y" or maskInput == "a" or maskInput == "up"):
         maskBool = True
-        print "yay it worked"
-    elif (maskInput == "below" or "no" or "n" or "b" or "down"):
+        print "Removing pixels above.\n"
+    elif (maskInput == "below" or maskInput == "no" or maskInput == "n" or maskInput == "b" or maskInput == "down"):
         maskBool = False
-        print "it still worked"
+        print "Removing pixels below.\n"
     else:
-        print "testing case will decide later"
+        print "this is an error to be added later\n"
 
 
     redValue = raw_input("Value of red for mask. Default: 240 \n")
-    greenValue = raw_input("Minimum value of green for mask. Default: 240 \n")
-    blueValue = raw_input("Minimum value of blue for mask. Default: 240 \n")
-    alphaValue = raw_input("Minimum value of alpha for mask. Default: 240 \n")
+    greenValue = raw_input("Value of green for mask. Default: 240 \n")
+    blueValue = raw_input("Value of blue for mask. Default: 240 \n")
+    alphaValue = raw_input("Value of alpha for mask. Default: 240 \n")
     # asks the user for values to mask the background with
 
     try:
@@ -69,8 +69,10 @@ def backRem ():
         print ("\nPlease input integer values between 0 and 255 for mask.\n")
         # errors if the values are not integers between 0 and 255
 
-
-    mask = (red >= redValue) & (green >= greenValue) & (blue >= blueValue) & (alpha >= alphaValue)
+    if maskBool:
+        mask = (red >= redValue) & (green >= greenValue) & (blue >= blueValue) & (alpha >= alphaValue)
+    else:
+        mask = (red <= redValue) & (green <= greenValue) & (blue <= blueValue) & (alpha <= alphaValue)
     # creates a mask for pixels that fit user defined parameters
 
     data[mask.T] = (0, 0, 0, 0)
