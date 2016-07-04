@@ -106,7 +106,7 @@ def backRem():
         # prints confirmation of successful conversion for user
 
     except Exception as error:
-        print ("Conversion failed. Please check inputs and contact administrator.")
+        print ("Conversion failed. Please check inputs and then contact administrator.")
         print ("=" * 50)
         print ("Error Arguments: " + str(error.args))
         print ("=" * 50)
