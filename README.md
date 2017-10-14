@@ -16,3 +16,11 @@ Matlab and Python Scripts for image manipulation
 - Rewrite border adder in python
 - Convert to separate program
   - potentially in java fx, most likely in python with pythonQT
+
+### Other TODO's
+shortcuts to remove white/black backgrounds -> overload function
+- just file name string will remove white background
+- file name followed by "white" or "black" string serve as shortcuts for background removal
+- add better default support with mask values in particular
+- alpha support (above and below) -> four cases
+- exception if values aren't int
