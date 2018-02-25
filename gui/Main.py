@@ -177,20 +177,3 @@ class Main:
 
 if __name__ == "__main__":
     Main().run()
-
-"""
-# TODO
-Feature list
-- before after shots (under the main image?)
-- set background color for image
-- sliders, masking?
-- adding borders to pictures
-- cropping?
-- export to exe
-- do something with status bar
-    - name of image loaded
-- file extension optional
-- path to image
-    - open directory to do several images
-    - batch image option
-"""
