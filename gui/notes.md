@@ -15,13 +15,17 @@ and run the program with
 Feature list
 - before after shots (under the main image?)
 - set background color for image
-- sliders, masking?
+- sliders do above and below
 - adding borders to pictures
 - cropping?
 - export to exe
-- do something with status bar
-    - name of image loaded
-- file extension optional
 - path to image
     - open directory to do several images
     - batch image option
+- buttons to remove white/black backgrounds -> overload function
+- file name followed by "white" or "black" string serve as shortcuts for background removal
+
+### Implemented
+- do something with status bar
+    - name of image loaded
+- file extension optional

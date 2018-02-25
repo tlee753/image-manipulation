@@ -1,8 +1,14 @@
 # Image-Manipulation
-Matlab and Python Scripts for image manipulation
+Python GUI to remove image backgrounds, Matlab and Python Scripts for image manipulation
 
 ### Functionality
-- Background Remover (PYTHON)
+- Image Manipulation GUI (PYTHON 3)
+  - removes backgrounds from images depending on mask input given by sliders
+  - visual assistance with removing backgrounds
+  - takes in either .jpg or .png, returns a .png for transparency
+![Linux (Before)](examples/Linux.jpg)
+![Mac (After)](examples/Mac.jpg)
+- Background Remover (PYTHON 2)
   - remove backgrounds from images (either black or white) with some tolerance
   - works by creating a mask for the background and removing those pixels
   - takes in either .jpg or .png, returns a .png for transparency
@@ -15,7 +21,7 @@ Matlab and Python Scripts for image manipulation
 - update masking for python file
 - Rewrite border adder in python
 - Convert to separate program
-  - potentially in java fx, most likely in python with pythonQT
+  - potentially in java fx, most likely in python with ~~pythonQT~~ tkinter
 
 ### Other TODO's
 shortcuts to remove white/black backgrounds -> overload function
@@ -23,4 +29,6 @@ shortcuts to remove white/black backgrounds -> overload function
 - file name followed by "white" or "black" string serve as shortcuts for background removal
 - add better default support with mask values in particular
 - alpha support (above and below) -> four cases
+
+### Implemented
 - exception if values aren't int
