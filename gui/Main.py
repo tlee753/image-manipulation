@@ -118,6 +118,9 @@ class Main:
         self.bottomRightFrame = tk.Frame(self.rightFrame)
         self.bottomRightFrame.pack(side=tk.BOTTOM, fill=tk.X)
 
+        self.undoButton = tk.Button(self.bottomRightFrame, text="Undo Changes", command=self.undo)
+        self.undoButton.pack(fill=tk.X, expand=True)
+
         self.saveButton = tk.Button(self.bottomRightFrame, text="Save Image", command=self.saveImage)
         self.saveButton.pack(fill=tk.X, pady=10, expand=True)
 
@@ -141,12 +144,17 @@ class Main:
             try:
                 self.status.configure(text="Opening " + self.imageString)
                 self.image = Image.open(self.imageString)
-                # if (self.image.size[0] > self.imageLabel.winfo_width() ):
-                #     self.image = self.image.resize((250, 250), Image.ANTIALIAS)
-                # elif (self.image.size[1] > self.imageLabel.winfo_heigh() ):
-                #     self.image = self.image.resize((250, 250), Image.ANTIALIAS)
-                self.photo = ImageTk.PhotoImage(self.image)
-                self.imageLabel.configure(image=self.photo)
+                if (self.image.size[0] > self.leftFrame.winfo_width()):
+                    sf = self.leftFrame.winfo_width() / self.image.size[0]
+                    scaledHeight = int(self.image.size[1] * sf)
+                    self.imageDisplay = self.image.resize((self.leftFrame.winfo_width(), scaledHeight), Image.ANTIALIAS)
+                elif (self.image.size[1] > self.imageLabel.winfo_height()):
+                    sf = self.leftFrame.winfo_height() / self.image.size[1]
+                    scaledWidth = int(self.image.size[0] * sf)
+                    self.imageDisplay = self.image.resize((scaledWidth, self.leftFrame.winfo_height()), Image.ANTIALIAS)
+                # self.photo = ImageTk.PhotoImage(self.image)
+                self.photoDisplay = ImageTk.PhotoImage(self.imageDisplay)
+                self.imageLabel.configure(image=self.photoDisplay)
                 self.status.configure(text="Editing " + self.imageString)
             except FileNotFoundError:
                 self.closeImage()
@@ -157,11 +165,25 @@ class Main:
         self.fileEntry.delete(0, tk.END)
         self.imageLabel.configure(image="")
 
-    def quit(self):
-        self.root.quit()
-
-    # def undo(self):
-    #     print("undoing your shit")
+    def undo(self):
+        try:
+            self.status.configure(text="Opening " + self.imageString)
+            self.image = Image.open(self.imageString)
+            if (self.image.size[0] > self.leftFrame.winfo_width()):
+                sf = self.leftFrame.winfo_width() / self.image.size[0]
+                scaledHeight = int(self.image.size[1] * sf)
+                self.imageDisplay = self.image.resize((self.leftFrame.winfo_width(), scaledHeight), Image.ANTIALIAS)
+            elif (self.image.size[1] > self.imageLabel.winfo_height()):
+                sf = self.leftFrame.winfo_height() / self.image.size[1]
+                scaledWidth = int(self.image.size[0] * sf)
+                self.imageDisplay = self.image.resize((scaledWidth, self.leftFrame.winfo_height()), Image.ANTIALIAS)
+            # self.photo = ImageTk.PhotoImage(self.image)
+            self.photoDisplay = ImageTk.PhotoImage(self.imageDisplay)
+            self.imageLabel.configure(image=self.photoDisplay)
+            self.status.configure(text="Editing " + self.imageString)
+        except FileNotFoundError:
+            self.closeImage()
+            self.status.configure(text="File not found: " + self.imageString)
 
     def removeBackground(self):
         try:
@@ -188,10 +210,19 @@ class Main:
 
         # converts four interconnected arrays back into image interpretation
         self.editedImage = Image.fromarray(self.data)
-        self.photo = ImageTk.PhotoImage(self.editedImage)
-        self.imageLabel.configure(image=self.photo)
+        if (self.editedImage.size[0] > self.leftFrame.winfo_width()):
+            sf = self.leftFrame.winfo_width() / self.editedImage.size[0]
+            scaledHeight = int(self.editedImage.size[1] * sf)
+            self.imageDisplay = self.editedImage.resize((self.leftFrame.winfo_width(), scaledHeight), Image.ANTIALIAS)
+        elif (self.editedImage.size[1] > self.imageLabel.winfo_height()):
+            sf = self.leftFrame.winfo_height() / self.editedImage.size[1]
+            scaledWidth = int(self.editedImage.size[0] * sf)
+            self.imageDisplay = self.editedImage.resize((scaledWidth, self.leftFrame.winfo_height()), Image.ANTIALIAS)
+        # self.photo = ImageTk.PhotoImage(self.editedImage)
+        self.photoDisplay = ImageTk.PhotoImage(self.imageDisplay)
+        self.imageLabel.configure(image=self.photoDisplay)
 
-        self.status.configure(text=self.imageString + " manipulated.")
+        self.status.configure(text=self.imageString + " had background removed.")
 
     def saveImage(self):
         try:
@@ -202,6 +233,9 @@ class Main:
         except:
             self.status.configure(text="File not saved.")
 
+    def quit(self):
+        self.root.quit()
+        
     def run(self):
         self.root.mainloop()
 
