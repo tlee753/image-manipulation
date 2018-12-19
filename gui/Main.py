@@ -57,10 +57,10 @@ class Main:
         self.contentFrame.pack(expand=True, fill=tk.BOTH)
 
         # ***** left frame *****
-        self.leftFrame = tk.Frame(self.contentFrame, bg="black")
+        self.leftFrame = tk.Frame(self.contentFrame, bg="grey")
         self.leftFrame.pack(side=tk.LEFT, expand=True, fill=tk.BOTH)
 
-        self.imageLabel = tk.Label(self.leftFrame, bg="black")
+        self.imageLabel = tk.Label(self.leftFrame, bg="grey")
         self.imageLabel.pack(expand=True)
 
         # ***** right frame *****
@@ -235,7 +235,7 @@ class Main:
 
     def quit(self):
         self.root.quit()
-        
+
     def run(self):
         self.root.mainloop()
 
