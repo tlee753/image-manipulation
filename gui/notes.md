@@ -12,18 +12,18 @@ and run the program with
 
 
 ### TODO
-Feature list
-- before after shots (under the main image?)
-- set background color for image
-- sliders do above and below
-- adding borders to pictures
-- cropping?
-- export to exe
-- path to image
-    - open directory to do several images
-    - batch image option
-- buttons to remove white/black backgrounds -> overload function
-- file name followed by "white" or "black" string serve as shortcuts for background removal
+- [ ] load images scaled to screen size
+- [ ] before after shots (under the main image?)
+- [ ] set background color for image
+- [ ] sliders do above and below
+- [ ] adding borders to pictures
+- [ ] cropping?
+- [ ] export to exe
+- [ ] path to image
+    - [ ] open directory to do several images
+    - [ ] batch image option
+- [ ] buttons to remove white/black backgrounds -> overload function
+- [ ] file name followed by "white" or "black" string serve as shortcuts for background removal
 
 ### Implemented
 - do something with status bar
